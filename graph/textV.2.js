@@ -71,6 +71,24 @@ class graph_classic {
 			this.liaison_color = "transparent";
 		}
 
+		if (json.point_display == false) {
+			this.point_diplay = true;
+		}
+
+		if (json.style == "plus") {
+			this.style = "plus"
+		}
+
+		if (json.style == "croix") {
+			this.style = "croix"
+		}
+
+	}
+
+	label(txt) {
+
+		this.labelx = txt.x;
+
 	}
 
 	afficher(id) {
@@ -170,9 +188,9 @@ class graph_classic {
 			for (let i = 0; i != (this.data_object.length - 1); i++) {
 
 				let xa = (200 * point[i][0]) / maxi_x + 1.5;
-				let ya = Math.abs((100 * point[i][1] / maxi) - 100) + -.5;
+				let ya = Math.abs((100 * point[i][1] / maxi) - 100) - 1.5;
 				let xb = (200 * point[i + 1][0]) / maxi_x + 1.5;
-				let yb = Math.abs((100 * point[i + 1][1] / maxi) - 100);
+				let yb = Math.abs((100 * point[i + 1][1] / maxi) - 100) - 1.5;
 
 				console.log(xa, ya)
 
@@ -188,17 +206,41 @@ class graph_classic {
 
 			for (let point of this.data_object) {
 
-				let x = (200 * point[0]) / maxi_x;
-				let y = Math.abs((100 * point[1] / maxi) - 100) - 2;
 
-				console.log(x + " " + y)
+				if (!this.point_diplay) {
+					if (!this.style) {
+						let x = (200 * point[0]) / maxi_x;
+						let y = Math.abs((100 * point[1] / maxi) - 100) - 3;
 
-				selector.innerHTML += `<rect x="${x}" y="${y}" width="3" height="3" fill="white" stroke="black"/>`;
-
+						selector.innerHTML += `<rect x="${x}" y="${y}" width="3" height="3" fill="white" stroke="black"/>`;
+					} else if (this.style == "plus") {
+						selector.innerHTML += `
+						<g>
+							<text y="${y}" x="${x}" style="fill: red;" font-family="Verdana" font-size="12">+</text>
+						</g>	
+					`
+					} else {
+						let x = (200 * point[0]) / maxi_x - 1.5;
+						let y = Math.abs((100 * point[1] / maxi) - 100) + 1.5;
+						selector.innerHTML += `
+						<g>
+							<text y="${y}" x="${x}" style="fill: red;" font-family="Monospace" font-size="12">x</text>
+						</g>	
+					`
+					}
+				}
 			}
 
 
+			if (this.labelx) {
 
+				selector.innerHTML += `
+					<g>
+						<text y="-12" x="-15" style="fill: black;" font-family="Verdana" font-size="6">${this.labelx}</text>
+					</g>	
+				`
+
+			}
 
 
 		}
@@ -215,11 +257,15 @@ g.add_point({
 
 	data: [
 		[0, 0],
-		[1, -2],
-		[2, -7],
-		[4, 8],
-		[5, 10],
-
+		[1, -1],
+		[2, 2],
+		[3, 3],
+		[2.5, 1.7],
+		[2.5, 1.7],
+		[1.5, 3.7],
+		[1.4, 3.2],
+		[1.3, -3.1],
+		[1.6, .1],
 	]
 
 });
@@ -227,7 +273,12 @@ g.add_point({
 g.change_style({
 	axecolor: "#47ab52",
 	color: "rgb(0,0,0,.15)",
-	liaison: true
+	liaison: true,
+	point_display: false
+})
+
+g.label({
+	x: "Valeur enregistrés"
 })
 
 g.afficher("svg");

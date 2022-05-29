@@ -1,63 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-    <body>
 
-        <svg id="graphExemple1" width="600" height="300" style="display: none;">
+<body>
 
-        </svg>
-        
-        <svg id="svg" viewBox="-20 -20 250 148" xmlns="http://www.w3.org/2000/svg"  style="background: white; padding: .3rem;width: calc(100% - .6rem);"> </svg>
+    <svg id="graphExemple1" width="600" height="300" style="display: none;">
 
+    </svg>
 
-
-        <script src="./text.js"></script>
-      
+    <svg id="svg" viewBox="-20 -20 250 148" xmlns="http://www.w3.org/2000/svg"
+        style="background: white; padding: .3rem;width: calc(40% - .6rem);"> </svg>
 
 
-        <style type="text/css">
+
+    <script src="./textV.2.js"></script>
 
 
-            html {
-                margin: 0 20%;
-                background: white;
-            }
+
+    <style type="text/css">
+        html {
+            background: black;
+        }
+
+        svg {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50vw;
+            top: 50vh;
+            border-radius: 10px;
+        }
+    </style>
 
 
-        </style>
-         
+    <script language="JavaScript" type="text/javascript">
 
-<script language ="JavaScript" type= "text/javascript">
-
-    function WhereMouse( evt ){
-    
-    evt = !evt ? event : evt
-    
-    var Mouse_X = evt.clientX; 
-    var Mouse_Y = evt.clientY;
-    
-    var scroll_x=document.body.scrollLeft || document.documentElement.scrollLeft;
-    var scroll_y=document.body.scrollTop || document.documentElement.scrollTop;
-    
-    Mouse_X += scroll_x;
-    Mouse_Y += scroll_y;
-    
-
-    }
-    
-    
-    typeof window.addEventListener == 'undefined' ? document.attachEvent("onmousemove",WhereMouse) : document.addEventListener('mousemove',WhereMouse,false);
-    
-     </script>
+    </script>
 
 
-  
 
 
-    </body>
+
+</body>
+
 </html>
