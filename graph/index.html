@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+
+        <svg id="graphExemple1" width="600" height="300" style="display: none;">
+
+        </svg>
+        
+        <svg id="svg" viewBox="-20 -20 250 148" xmlns="http://www.w3.org/2000/svg"  style="background: white; padding: .3rem;width: calc(100% - .6rem);"> </svg>
+
+
+
+        <script src="./text.js"></script>
+      
+
+
+        <style type="text/css">
+
+
+            html {
+                margin: 0 20%;
+                background: white;
+            }
+
+
+        </style>
+         
+
+<script language ="JavaScript" type= "text/javascript">
+
+    function WhereMouse( evt ){
+    
+    evt = !evt ? event : evt
+    
+    var Mouse_X = evt.clientX; 
+    var Mouse_Y = evt.clientY;
+    
+    var scroll_x=document.body.scrollLeft || document.documentElement.scrollLeft;
+    var scroll_y=document.body.scrollTop || document.documentElement.scrollTop;
+    
+    Mouse_X += scroll_x;
+    Mouse_Y += scroll_y;
+    
+
+    }
+    
+    
+    typeof window.addEventListener == 'undefined' ? document.attachEvent("onmousemove",WhereMouse) : document.addEventListener('mousemove',WhereMouse,false);
+    
+     </script>
+
+
+  
+
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<svg id="graphExemple1" width="600" height="300">
+</svg>
+    <script src="./graph.js"></script>
+
+    <script type="text/javascript">
+
+        
+
+        var graph = new jsGraphDisplay();
+        
+        // 2) Ajout des données
+        graph.DataAdd({
+        data: [
+            [4, 21],
+            [8, 23],
+            [12, 26],
+            [16, 25],
+            [20, 20],
+            [24, 22],
+            [28, 27],
+            [32, 35]
+        ]
+        });
+        
+        // 3) Affichage du résultat
+        graph.Draw('graphExemple1');
+
+        <script>
